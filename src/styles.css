@@ -69,6 +69,7 @@ a {
 
 img {
   display: block;
+  height: auto;
   max-width: 100%;
 }
 
@@ -686,8 +687,9 @@ section[id] {
   position: relative;
   z-index: 1;
   width: 100%;
-  aspect-ratio: 0.707;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
   object-position: top;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: var(--shadow);
@@ -914,8 +916,9 @@ section[id] {
 
 .preview-frame img {
   width: 100%;
-  aspect-ratio: 0.707;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
   object-position: top;
   border: 1px solid rgba(9, 11, 14, 0.16);
   animation: preview-enter 260ms ease both;
