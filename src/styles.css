@@ -409,10 +409,36 @@ section[id] {
 
 .hero-lead {
   max-width: 640px;
-  margin-bottom: 34px;
+  margin-bottom: 22px;
   color: #ced1d7;
   font-size: clamp(1.08rem, 1.8vw, 1.35rem);
   line-height: 1.6;
+}
+
+.hero-price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.hero-price span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.hero-price del {
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 2px;
+}
+
+.hero-price strong {
+  color: var(--amber);
+  font-family: "Arial Narrow", "Segoe UI", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 950;
+  letter-spacing: -0.04em;
 }
 
 .hero-actions {
@@ -426,6 +452,14 @@ section[id] {
   margin-bottom: 0;
   color: var(--muted);
   font-size: 0.84rem;
+}
+
+.hero-addon-note {
+  max-width: 600px;
+  margin: 9px 0 0;
+  color: #b8bec7;
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 
 .hero-product {
@@ -494,13 +528,6 @@ section[id] {
   top: 26px;
   right: 14px;
   transform: rotate(10deg) translateZ(2px);
-}
-
-.stack-sheet-4 {
-  z-index: 1;
-  top: 112px;
-  right: 2px;
-  transform: rotate(17deg) translateZ(-20px);
 }
 
 .stack-note {
@@ -950,6 +977,126 @@ section[id] {
   }
 }
 
+.addon {
+  overflow: hidden;
+  padding-block: clamp(92px, 11vw, 150px);
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 12% 50%, rgba(243, 164, 0, 0.1), transparent 34%),
+    var(--ink-soft);
+}
+
+.addon-layout {
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1fr);
+  gap: clamp(58px, 10vw, 130px);
+}
+
+.addon-visual {
+  display: grid;
+  align-items: start;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1fr);
+  gap: 18px;
+}
+
+.addon-visual figure {
+  position: relative;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #151920;
+  box-shadow: var(--shadow);
+}
+
+.addon-cover {
+  transform: rotate(-3deg) translateY(34px);
+}
+
+.addon-page {
+  transform: rotate(2deg);
+}
+
+.addon-visual img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top;
+}
+
+.addon-visual figcaption {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  background: var(--amber);
+  color: var(--ink);
+  font-size: 0.66rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.addon-copy h2 {
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.addon-copy > p:not(.eyebrow, .addon-note) {
+  max-width: 650px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.addon-price {
+  display: grid;
+  max-width: 520px;
+  margin-top: 34px;
+  padding: 22px 24px;
+  border: 1px solid var(--amber);
+  background: rgba(243, 164, 0, 0.07);
+}
+
+.addon-price span {
+  color: #f7d47f;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.addon-price strong {
+  margin-block: 5px;
+  color: var(--text);
+  font-family: "Arial Narrow", "Segoe UI", sans-serif;
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  font-weight: 950;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.addon-price small {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.addon-list {
+  max-width: 620px;
+  margin-top: 28px;
+}
+
+.addon-note {
+  max-width: 620px;
+  margin: 28px 0 0;
+  padding-left: 16px;
+  border-left: 3px solid var(--red);
+  color: #d8dbe0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
 .fit {
   padding-block: clamp(92px, 11vw, 150px);
 }
@@ -1050,15 +1197,43 @@ section[id] {
   margin-bottom: 28px;
 }
 
-.price-block > span {
-  color: var(--paper-muted);
-  font-size: 0.85rem;
+.price-campaign {
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 7px 10px;
+  border: 1px solid var(--red-dark);
+  color: var(--red-dark);
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.price-block strong {
+.price-before {
+  margin-bottom: 0;
+  color: var(--paper-muted);
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.price-before del {
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 2px;
+}
+
+.price-current {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.price-current > span {
+  color: var(--paper-muted);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.price-current strong {
   margin-block: 2px 4px;
   color: var(--ink);
   font-family: "Arial Narrow", "Segoe UI", sans-serif;
@@ -1072,6 +1247,13 @@ section[id] {
 .payment-note {
   color: var(--paper-muted);
   font-size: 0.82rem;
+}
+
+.price-block .price-savings {
+  margin-bottom: 4px;
+  color: var(--red-dark);
+  font-size: 0.86rem;
+  font-weight: 850;
 }
 
 .payment-note {
@@ -1151,6 +1333,33 @@ section[id] {
   color: var(--muted);
   font-size: 0.72rem;
   white-space: nowrap;
+}
+
+.summary-addon {
+  display: grid;
+  margin-top: 22px;
+  padding: 16px;
+  border: 1px dashed var(--amber);
+  border-radius: 8px;
+  background: rgba(243, 164, 0, 0.08);
+}
+
+.summary-addon span {
+  color: var(--amber);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.summary-addon strong {
+  margin-block: 5px 3px;
+  font-size: 0.9rem;
+}
+
+.summary-addon small {
+  color: var(--muted);
+  font-size: 0.74rem;
 }
 
 .delivery-state {
@@ -1391,16 +1600,28 @@ section[id] {
   backdrop-filter: blur(14px);
 }
 
-.mobile-offer-bar > div {
+.mobile-price {
   display: grid;
 }
 
-.mobile-offer-bar span {
+.mobile-price > span {
   color: var(--muted);
   font-size: 0.7rem;
 }
 
-.mobile-offer-bar strong {
+.mobile-price > div {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.mobile-price del {
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-decoration-color: var(--red);
+}
+
+.mobile-price strong {
   font-size: 1.2rem;
 }
 
@@ -1510,6 +1731,7 @@ section[id] {
 
   .manifesto-grid,
   .preview-layout,
+  .addon-layout,
   .offer-shell,
   .faq-layout {
     grid-template-columns: 1fr;
@@ -1517,9 +1739,15 @@ section[id] {
 
   .manifesto-grid,
   .preview-layout,
+  .addon-layout,
   .offer-shell,
   .faq-layout {
     gap: 54px;
+  }
+
+  .addon-visual {
+    width: min(100%, 620px);
+    justify-self: center;
   }
 
   .module-row,
@@ -1639,10 +1867,44 @@ section[id] {
   .modules,
   .method,
   .preview,
+  .addon,
   .fit,
   .offer,
   .faq {
     padding-block: 82px;
+  }
+
+  .hero-price {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .addon-visual {
+    gap: 10px;
+  }
+
+  .addon-visual figure {
+    padding: 6px;
+  }
+
+  .addon-cover {
+    transform: rotate(-2deg) translateY(22px);
+  }
+
+  .addon-page {
+    transform: rotate(1deg);
+  }
+
+  .addon-visual figcaption {
+    right: 12px;
+    bottom: 12px;
+    padding: 6px 8px;
+    font-size: 0.58rem;
+  }
+
+  .price-current strong {
+    font-size: clamp(3.4rem, 16vw, 5.3rem);
   }
 
   .module-list {

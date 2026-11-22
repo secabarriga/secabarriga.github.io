@@ -4,12 +4,13 @@ Crie uma página de vendas responsiva, rápida e acessível para o produto digit
 
 ## Produto e fatos verificáveis
 
-O pacote tem 4 PDFs e 79 páginas no total:
+O protocolo principal tem 3 PDFs e 57 páginas no total:
 
 1. Parte 1 — Fundamentos e mapa do processo: 9 páginas.
 2. Parte 2 — Treino progressivo em casa: 29 páginas, 15 exercícios explicados, sessões informadas de aproximadamente 25 a 50 minutos, circuitos, cardio, core, HIIT, Tabata e adaptações.
 3. Parte 3 — Plano alimentar: 19 páginas, organização calórica, macronutrientes, cardápio de 7 dias, substituições, lista de compras e 8 preparos rápidos.
-4. Expansão — 50 Receitas Fit: 22 páginas, com cafés, almoços, jantares, lanches, doces, marmitas e molhos; cada receita informa tempo, calorias e macros estimados.
+
+O ebook **50 Receitas Fit** não faz parte do protocolo principal. Ele é um adicional opcional de R$ 4,90 oferecido no checkout da Cakto. Tem 22 páginas, com cafés, almoços, jantares, lanches, doces, marmitas e molhos; cada receita informa tempo, calorias e macros estimados. O total da compra com o adicional é R$ 24,80.
 
 Use apenas a versão escura e mais recente da Parte 1, identificada como `parte-1-apresentacao-protocolo-4-semanas (2).pdf`. A outra Parte 1 é uma versão anterior e não faz parte do pacote.
 
@@ -19,7 +20,7 @@ Adultos que querem organizar treino e alimentação, preferem treinar em casa e 
 
 ## Posicionamento central
 
-“Um plano de quatro semanas para tirar treino e alimentação do improviso — com rotina progressiva em casa, cardápio organizado, lista de compras e 50 receitas para variar sem abandonar o processo.”
+“Um plano de quatro semanas para tirar treino e alimentação do improviso — com rotina progressiva em casa, cardápio organizado e lista de compras.”
 
 Headline sugerida: **“Pare de improvisar. Comece com um plano.”**
 
@@ -36,17 +37,18 @@ Headline sugerida: **“Pare de improvisar. Comece com um plano.”**
 
 1. Barra discreta de estado da compra/entrega.
 2. Cabeçalho com marca, navegação curta e CTA.
-3. Hero com posicionamento, resumo verificável, CTA principal e pilha visual com as quatro capas reais.
-4. Faixa de fatos: 4 PDFs, 79 páginas, 7 dias de cardápio e 50 receitas.
+3. Hero com posicionamento, preço normal de R$ 99,90, preço promocional de R$ 19,90, CTA principal e pilha visual com as três capas incluídas.
+4. Faixa de fatos: 3 PDFs, 57 páginas, 7 dias de cardápio e ebook opcional por mais R$ 4,90.
 5. Seção de problema: informação solta versus plano organizado.
-6. Conteúdo do pacote em quatro blocos editoriais, cada um com página real, quantidade de páginas e itens concretos.
+6. Conteúdo do protocolo principal em três blocos editoriais, cada um com página real, quantidade de páginas e itens concretos.
 7. Progressão das quatro semanas: ativação, progressão, pico metabólico e consolidação.
-8. Galeria interativa de páginas reais dos PDFs.
-9. Seção “para quem é / para quem não é”.
-10. Oferta clara com preço, conteúdo, garantia e botão para o checkout hospedado na Cakto.
-11. FAQ sem respostas evasivas.
-12. Aviso de saúde legível.
-13. CTA final e rodapé sem links quebrados.
+8. Galeria interativa somente com páginas reais dos três PDFs incluídos.
+9. Seção própria para o adicional opcional, usando capa e página real do ebook e informando R$ 4,90 e total de R$ 24,80.
+10. Seção “para quem é / para quem não é”.
+11. Oferta clara com preço normal riscado, preço promocional, conteúdo incluído, garantia e botão para o checkout hospedado na Cakto.
+12. FAQ sem respostas evasivas, incluindo a diferença entre o protocolo e o ebook opcional.
+13. Aviso de saúde legível.
+14. CTA final e rodapé sem links quebrados.
 
 ## Copy e integridade
 
@@ -60,7 +62,13 @@ Headline sugerida: **“Pare de improvisar. Comece com um plano.”**
 
 ## Oferta e Cakto
 
-- Preço de referência da página fornecida: R$ 97,00, pagamento único.
+- Preço normal do protocolo principal: R$ 99,90.
+- Preço promocional da Black Friday de fim de ano: R$ 19,90, pagamento único.
+- Economia exibida: R$ 80,00.
+- Adicional opcional no checkout: ebook 50 Receitas Fit por R$ 4,90.
+- Total com o adicional: R$ 24,80.
+- Não inventar data final, contador, estoque ou urgência. A campanha só permanece anunciada enquanto a oferta correspondente estiver ativa na Cakto.
+- O checkout principal entrega somente os três PDFs do protocolo. O ebook deve ser liberado apenas quando o comprador aceitar o adicional.
 - Garantia de referência: 7 dias. Deve coincidir com a política configurada no checkout.
 - Todos os CTAs devem usar uma única variável/configuração para o link do checkout Cakto.
 - O site nunca coleta cartão, CPF, telefone ou dados de pagamento; a compra ocorre no checkout hospedado da Cakto.

@@ -10,12 +10,15 @@ export type ProductModule = {
 
 export const PRODUCT = {
   name: "Protocolo 4 Semanas",
-  price: "R$ 97,00",
-  priceCents: 9700,
+  campaign: "Black Friday de fim de ano",
+  regularPrice: "R$ 99,90",
+  regularPriceCents: 9990,
+  price: "R$ 19,90",
+  priceCents: 1990,
+  savings: "R$ 80,00",
   guaranteeDays: 7,
-  totalPages: 79,
-  totalPdfs: 4,
-  recipeCount: 50,
+  totalPages: 57,
+  totalPdfs: 3,
   modules: [
     {
       id: "fundamentos",
@@ -47,17 +50,18 @@ export const PRODUCT = {
         "Orientações para organizar calorias e refeições, com cardápio de sete dias e lista de compras.",
       highlights: ["Cardápio de 7 dias", "Substituições e lista de compras", "8 preparos rápidos"],
     },
-    {
-      id: "receitas",
-      label: "Expansão",
-      title: "50 Receitas Fit",
-      pages: 22,
-      image: "/previews/receitas-capa.jpg",
-      description:
-        "Uma expansão com cafés, almoços, jantares, lanches, doces, marmitas e molhos para variar a rotina.",
-      highlights: ["50 receitas numeradas", "Tempo de preparo", "Calorias e macros estimados"],
-    },
   ] satisfies ProductModule[],
+} as const;
+
+export const RECIPE_ADDON = {
+  name: "50 Receitas Fit",
+  price: "R$ 4,90",
+  priceCents: 490,
+  totalWithProduct: "R$ 24,80",
+  pages: 22,
+  recipeCount: 50,
+  coverImage: "/previews/receitas-capa.jpg",
+  previewImage: "/previews/receitas-pagina.jpg",
 } as const;
 
 const configuredCheckoutUrl = import.meta.env.VITE_CAKTO_CHECKOUT_URL?.trim() ?? "";

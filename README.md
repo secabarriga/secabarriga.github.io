@@ -2,6 +2,8 @@
 
 Landing page em React, TypeScript e Vite criada a partir dos PDFs reais do produto. O projeto é independente do frontend do PRESCRITOR e não altera a aplicação médica existente.
 
+A oferta principal reúne 3 PDFs e 57 páginas, com preço normal de R$ 99,90 e preço promocional de R$ 19,90 na campanha de fim de ano. O ebook **50 Receitas Fit** é um adicional opcional de R$ 4,90 oferecido no checkout da Cakto; com ele, o total é R$ 24,80.
+
 ## Rodar localmente
 
 ```powershell
@@ -27,7 +29,7 @@ Copie `.env.example` para `.env.production` e preencha:
 - `VITE_DELIVERY_READY`: `true` somente depois de testar o e-mail de entrega;
 - `VITE_SUPPORT_EMAIL`: e-mail público de suporte.
 
-Preço, garantia e inventário ficam em `src/siteConfig.ts`. Confirme que esses dados coincidem com a oferta real antes de publicar.
+Preços, garantia, inventário do protocolo e dados do ebook opcional ficam em `src/siteConfig.ts`. Confirme que esses dados coincidem com a oferta real antes de publicar. O link deve apontar para a oferta principal; a seleção do ebook acontece como adicional no próprio checkout.
 
 ## Conteúdo e assets
 

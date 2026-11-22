@@ -4,6 +4,7 @@ import {
   buildCheckoutUrl,
   DELIVERY_READY,
   PRODUCT,
+  RECIPE_ADDON,
   SUPPORT_EMAIL,
   type ProductModule,
 } from "./siteConfig";
@@ -61,15 +62,6 @@ const previews: Preview[] = [
     image: "/previews/dieta-cardapio.jpg",
     alt: "Página do plano alimentar com um cardápio diário",
   },
-  {
-    id: "receitas",
-    shortLabel: "Receitas",
-    title: "Variedade para continuar",
-    description:
-      "As receitas apresentam ingredientes, modo de preparo, tempo e macronutrientes estimados por porção.",
-    image: "/previews/receitas-pagina.jpg",
-    alt: "Página do ebook de receitas com preparos de café da manhã",
-  },
 ];
 
 const weeks = [
@@ -114,8 +106,13 @@ const faqs = [
   {
     question: "Como vou receber os PDFs?",
     answer: DELIVERY_READY
-      ? "Depois que o pagamento for aprovado pela Cakto, as instruções de acesso são enviadas automaticamente para o e-mail usado no checkout."
+      ? "Depois que o pagamento for aprovado pela Cakto, as instruções de acesso aos três PDFs são enviadas automaticamente para o e-mail usado no checkout. Se você adicionar o ebook de receitas, ele também será liberado na sua compra."
       : "A entrega automática por e-mail será ativada na Cakto antes do lançamento público desta página.",
+  },
+  {
+    question: "O ebook de receitas está incluído nos R$ 19,90?",
+    answer:
+      "Não. Os R$ 19,90 correspondem aos três PDFs do Protocolo 4 Semanas. O ebook 50 Receitas Fit é um adicional opcional de R$ 4,90 oferecido no checkout. Se você escolher os dois, o total será de R$ 24,80.",
   },
   {
     question: "O protocolo garante um resultado específico?",
@@ -207,7 +204,7 @@ function CheckoutDialog({ open, onClose }: { open: boolean; onClose: () => void 
 
 function ProductStack() {
   return (
-    <div className="product-stack" aria-label="Prévia das quatro partes do Protocolo 4 Semanas">
+    <div className="product-stack" aria-label="Prévia das três partes do Protocolo 4 Semanas">
       {PRODUCT.modules.map((module, index) => (
         <figure className={`stack-sheet stack-sheet-${index + 1}`} key={module.id}>
           <img
@@ -220,7 +217,9 @@ function ProductStack() {
           <figcaption>{module.label}</figcaption>
         </figure>
       ))}
-      <span className="stack-note">4 PDFs · {PRODUCT.totalPages} páginas</span>
+      <span className="stack-note">
+        {PRODUCT.totalPdfs} PDFs · {PRODUCT.totalPages} páginas
+      </span>
     </div>
   );
 }
@@ -324,25 +323,35 @@ function App() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-grid shell">
             <div className="hero-copy" data-reveal>
-              <p className="eyebrow">Treino + alimentação · plano digital</p>
+              <p className="eyebrow">{PRODUCT.campaign} · plano digital</p>
               <h1 id="hero-title">
                 Pare de improvisar.
                 <span>Comece com um plano.</span>
               </h1>
               <p className="hero-lead">
-                Quatro semanas de treino progressivo em casa, cardápio organizado e receitas
-                para transformar intenção em rotina — um dia de cada vez.
+                Quatro semanas de treino progressivo em casa e alimentação organizada para
+                transformar intenção em rotina — um dia de cada vez.
+              </p>
+              <p className="hero-price" aria-label={`De ${PRODUCT.regularPrice} por ${PRODUCT.price}`}>
+                <span>
+                  De <del>{PRODUCT.regularPrice}</del>
+                </span>
+                <strong>por {PRODUCT.price}</strong>
               </p>
               <div className="hero-actions">
                 <CheckoutAction checkoutUrl={checkoutUrl} onMissingCheckout={showMissingCheckout}>
-                  Quero o protocolo completo
+                  Quero o protocolo por {PRODUCT.price}
                 </CheckoutAction>
                 <a className="text-link" href="#previa">
                   Ver páginas por dentro
                 </a>
               </div>
               <p className="microcopy">
-                Compra única · 4 PDFs · garantia de {PRODUCT.guaranteeDays} dias
+                Pagamento único · {PRODUCT.totalPdfs} PDFs · {PRODUCT.totalPages} páginas · garantia
+                de {PRODUCT.guaranteeDays} dias
+              </p>
+              <p className="hero-addon-note">
+                O ebook 50 Receitas Fit pode ser adicionado por mais {RECIPE_ADDON.price} no checkout.
               </p>
             </div>
             <div className="hero-product" data-reveal>
@@ -361,7 +370,7 @@ function App() {
                 <strong>7</strong> dias de cardápio
               </span>
               <span>
-                <strong>{PRODUCT.recipeCount}</strong> receitas na expansão
+                <strong>+ {RECIPE_ADDON.price}</strong> ebook opcional
               </span>
             </div>
           </div>
@@ -380,7 +389,7 @@ function App() {
               </p>
               <p>
                 O Protocolo 4 Semanas reúne a sequência: o treino do dia, a progressão das
-                semanas, um cardápio de referência, compras e opções para variar as refeições.
+                semanas, um cardápio de referência e uma lista de compras organizada.
               </p>
               <p className="manifesto-emphasis">Menos decisão. Mais clareza para executar.</p>
             </div>
@@ -389,11 +398,11 @@ function App() {
 
         <section className="modules section-dark" id="conteudo-do-pacote" aria-labelledby="modules-title">
           <div className="shell section-intro" data-reveal>
-            <p className="eyebrow">O pacote completo</p>
-            <h2 id="modules-title">Quatro materiais que trabalham juntos.</h2>
+            <p className="eyebrow">O protocolo principal</p>
+            <h2 id="modules-title">Três materiais que organizam as suas quatro semanas.</h2>
             <p>
-              Nada de um PDF genérico com meia dúzia de páginas. Veja exatamente o que entra no
-              pacote e como cada parte ajuda a organizar o processo.
+              Ao comprar por {PRODUCT.price}, você recebe exatamente estes três PDFs: fundamentos,
+              treino e alimentação.
             </p>
           </div>
           <div className="shell module-list">
@@ -432,7 +441,7 @@ function App() {
               <h2 id="preview-title">Sem mockup genérico. É isto que você recebe.</h2>
               <p>
                 Selecione uma área para ver páginas do material. As imagens abaixo foram geradas
-                diretamente dos arquivos incluídos no pacote.
+                diretamente dos três PDFs incluídos no protocolo principal.
               </p>
               <div className="preview-tabs" role="group" aria-label="Escolher página para visualizar">
                 {previews.map((preview) => (
@@ -461,6 +470,55 @@ function App() {
                 width="909"
                 height="1286"
               />
+            </div>
+          </div>
+        </section>
+
+        <section className="addon section-dark" id="receitas-opcionais" aria-labelledby="addon-title">
+          <div className="shell addon-layout">
+            <div className="addon-visual" data-reveal>
+              <figure className="addon-cover">
+                <img
+                  src={RECIPE_ADDON.coverImage}
+                  alt="Capa do ebook opcional 50 Receitas Fit"
+                  width="909"
+                  height="1286"
+                  loading="lazy"
+                />
+                <figcaption>Ebook opcional</figcaption>
+              </figure>
+              <figure className="addon-page">
+                <img
+                  src={RECIPE_ADDON.previewImage}
+                  alt="Página real do ebook opcional com receitas de café da manhã"
+                  width="909"
+                  height="1286"
+                  loading="lazy"
+                />
+                <figcaption>Página real</figcaption>
+              </figure>
+            </div>
+            <div className="addon-copy" data-reveal>
+              <p className="eyebrow">Adicional opcional no checkout</p>
+              <h2 id="addon-title">Quer mais variedade nas refeições?</h2>
+              <p>
+                Ao comprar o Protocolo 4 Semanas, você poderá adicionar o ebook 50 Receitas Fit
+                por apenas {RECIPE_ADDON.price} no checkout da Cakto.
+              </p>
+              <div className="addon-price">
+                <span>{RECIPE_ADDON.name}</span>
+                <strong>+ {RECIPE_ADDON.price}</strong>
+                <small>Protocolo + ebook: {RECIPE_ADDON.totalWithProduct} no total</small>
+              </div>
+              <ul className="check-list addon-list">
+                <li>{RECIPE_ADDON.pages} páginas com {RECIPE_ADDON.recipeCount} receitas;</li>
+                <li>ingredientes, preparo e tempo de cada opção;</li>
+                <li>calorias e macronutrientes estimados por porção.</li>
+              </ul>
+              <p className="addon-note">
+                O adicional é opcional. Sem ele, você paga somente {PRODUCT.price} pelo protocolo
+                principal.
+              </p>
             </div>
           </div>
         </section>
@@ -495,23 +553,33 @@ function App() {
         <section className="offer section-light" id="oferta" aria-labelledby="offer-title">
           <div className="shell offer-shell">
             <div className="offer-main" data-reveal>
-              <p className="eyebrow eyebrow-dark">Acesso ao pacote completo</p>
+              <p className="eyebrow eyebrow-dark">{PRODUCT.campaign}</p>
               <h2 id="offer-title">Comece a semana sabendo o que fazer.</h2>
               <p className="offer-description">
-                Receba os quatro PDFs e use o material na ordem: fundamentos, treino,
-                alimentação e receitas.
+                Receba os três PDFs do protocolo principal e use o material na ordem:
+                fundamentos, treino e alimentação.
               </p>
-              <div className="price-block" aria-label={`Preço: ${PRODUCT.price}`}>
-                <span>Pagamento único</span>
-                <strong>{PRODUCT.price}</strong>
-                <small>Condições de parcelamento aparecem no checkout da Cakto.</small>
+              <div
+                className="price-block"
+                aria-label={`Preço promocional: de ${PRODUCT.regularPrice} por ${PRODUCT.price}`}
+              >
+                <span className="price-campaign">Oferta especial de fim de ano</span>
+                <p className="price-before">
+                  De <del>{PRODUCT.regularPrice}</del>
+                </p>
+                <div className="price-current">
+                  <span>por</span>
+                  <strong>{PRODUCT.price}</strong>
+                </div>
+                <small className="price-savings">Você economiza {PRODUCT.savings}.</small>
+                <small>Pagamento único. Condições aparecem no checkout da Cakto.</small>
               </div>
               <CheckoutAction
                 checkoutUrl={checkoutUrl}
                 onMissingCheckout={showMissingCheckout}
                 className="button button-primary button-wide"
               >
-                Quero começar o Protocolo 4 Semanas
+                Quero o protocolo por {PRODUCT.price}
               </CheckoutAction>
               <p className="payment-note">
                 Pix, cartão e demais opções habilitadas serão exibidos pela Cakto.
@@ -522,7 +590,7 @@ function App() {
                 <span>{PRODUCT.guaranteeDays}</span>
                 <strong>dias de garantia</strong>
               </div>
-              <h3>Você recebe</h3>
+              <h3>Incluído por {PRODUCT.price}</h3>
               <ul className="purchase-list">
                 {PRODUCT.modules.map((module) => (
                   <li key={module.id}>
@@ -532,6 +600,11 @@ function App() {
                   </li>
                 ))}
               </ul>
+              <div className="summary-addon">
+                <span>Opcional no checkout</span>
+                <strong>{RECIPE_ADDON.name} + {RECIPE_ADDON.price}</strong>
+                <small>Total com o adicional: {RECIPE_ADDON.totalWithProduct}</small>
+              </div>
               <p className={`delivery-state ${DELIVERY_READY ? "delivery-ready" : ""}`}>
                 {DELIVERY_READY
                   ? "Entrega automática por e-mail após a aprovação do pagamento."
@@ -579,7 +652,7 @@ function App() {
             <p className="eyebrow">Seu próximo passo já está organizado</p>
             <h2 id="final-cta-title">Abra o plano. Escolha o dia. Comece.</h2>
             <CheckoutAction checkoutUrl={checkoutUrl} onMissingCheckout={showMissingCheckout}>
-              Quero o protocolo completo
+              Quero o protocolo por {PRODUCT.price}
             </CheckoutAction>
           </div>
         </section>
@@ -602,9 +675,12 @@ function App() {
       </footer>
 
       <div className="mobile-offer-bar">
-        <div>
-          <span>Pacote completo</span>
-          <strong>{PRODUCT.price}</strong>
+        <div className="mobile-price">
+          <span>{PRODUCT.campaign}</span>
+          <div>
+            <del>{PRODUCT.regularPrice}</del>
+            <strong>{PRODUCT.price}</strong>
+          </div>
         </div>
         <CheckoutAction
           checkoutUrl={checkoutUrl}

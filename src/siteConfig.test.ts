@@ -1,12 +1,22 @@
 import { describe, expect, it } from "vitest";
 
-import { buildCheckoutUrl, normalizeCheckoutUrl, PRODUCT } from "./siteConfig";
+import { buildCheckoutUrl, normalizeCheckoutUrl, PRODUCT, RECIPE_ADDON } from "./siteConfig";
 
 describe("site configuration", () => {
   it("keeps the verified inventory total", () => {
     expect(PRODUCT.modules.reduce((total, module) => total + module.pages, 0)).toBe(
       PRODUCT.totalPages,
     );
+  });
+
+  it("keeps the Black Friday offer and optional add-on totals consistent", () => {
+    expect(PRODUCT.regularPriceCents).toBe(9990);
+    expect(PRODUCT.priceCents).toBe(1990);
+    expect(RECIPE_ADDON.priceCents).toBe(490);
+    expect(PRODUCT.regularPriceCents - PRODUCT.priceCents).toBe(8000);
+    expect(PRODUCT.priceCents + RECIPE_ADDON.priceCents).toBe(2480);
+    expect(PRODUCT.totalPdfs).toBe(3);
+    expect(PRODUCT.totalPages).toBe(57);
   });
 
   it("accepts only HTTPS checkout URLs", () => {
