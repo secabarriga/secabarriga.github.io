@@ -8,6 +8,10 @@ export type ProductModule = {
   highlights: string[];
 };
 
+export function assetUrl(path: string): string {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+}
+
 export const PRODUCT = {
   name: "Protocolo 4 Semanas",
   campaign: "Black Friday de fim de ano",
@@ -25,7 +29,7 @@ export const PRODUCT = {
       label: "Parte 1",
       title: "Fundamentos e mapa do processo",
       pages: 9,
-      image: "/previews/apresentacao-capa.jpg",
+      image: assetUrl("/previews/apresentacao-capa.jpg"),
       description:
         "A base para entender o método, organizar a execução e visualizar as quatro etapas do protocolo.",
       highlights: ["Três pilares do método", "Mentalidade e constância", "Mapa das quatro semanas"],
@@ -35,7 +39,7 @@ export const PRODUCT = {
       label: "Parte 2",
       title: "Treino progressivo em casa",
       pages: 29,
-      image: "/previews/treino-capa.jpg",
+      image: assetUrl("/previews/treino-capa.jpg"),
       description:
         "Um calendário diário com circuitos, cardio, core, progressão semanal e adaptações de execução.",
       highlights: ["15 exercícios explicados", "Sessões de 25 a 50 minutos", "Variações para diferentes níveis"],
@@ -45,7 +49,7 @@ export const PRODUCT = {
       label: "Parte 3",
       title: "Plano alimentar sem improviso",
       pages: 19,
-      image: "/previews/dieta-capa.jpg",
+      image: assetUrl("/previews/dieta-capa.jpg"),
       description:
         "Orientações para organizar calorias e refeições, com cardápio de sete dias e lista de compras.",
       highlights: ["Cardápio de 7 dias", "Substituições e lista de compras", "8 preparos rápidos"],
@@ -60,8 +64,8 @@ export const RECIPE_ADDON = {
   totalWithProduct: "R$ 24,80",
   pages: 22,
   recipeCount: 50,
-  coverImage: "/previews/receitas-capa.jpg",
-  previewImage: "/previews/receitas-pagina.jpg",
+  coverImage: assetUrl("/previews/receitas-capa.jpg"),
+  previewImage: assetUrl("/previews/receitas-pagina.jpg"),
 } as const;
 
 const configuredCheckoutUrl = import.meta.env.VITE_CAKTO_CHECKOUT_URL?.trim() ?? "";

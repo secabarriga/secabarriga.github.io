@@ -82,6 +82,7 @@ Headline sugerida: **“Pare de improvisar. Comece com um plano.”**
 - HTML semântico, navegação por teclado, foco visível, contraste adequado e suporte a `prefers-reduced-motion`.
 - Layout testado em desktop e mobile.
 - SEO básico completo; manter `noindex` enquanto o checkout e a entrega não estiverem homologados.
+- Publicar a versão canônica no GitHub Pages com base compatível com o caminho público escolhido e implantação automática por GitHub Actions.
 - Não carregar scripts de terceiros desnecessários, pixels ou analytics sem aprovação.
 - Imagens otimizadas e carregamento adiado fora do hero.
 - Centralizar preço, URL da Cakto, estado da entrega e e-mail de suporte.

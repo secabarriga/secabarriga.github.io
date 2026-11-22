@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 import {
+  assetUrl,
   buildCheckoutUrl,
   DELIVERY_READY,
   PRODUCT,
@@ -32,7 +33,7 @@ const previews: Preview[] = [
     title: "As quatro etapas em uma visão",
     description:
       "Ativação, progressão, pico metabólico e consolidação organizadas para você saber o foco de cada semana.",
-    image: "/previews/apresentacao-mapa.jpg",
+    image: assetUrl("/previews/apresentacao-mapa.jpg"),
     alt: "Página do material com o mapa das quatro semanas",
   },
   {
@@ -41,7 +42,7 @@ const previews: Preview[] = [
     title: "Uma rotina que já vem montada",
     description:
       "A estrutura semanal distribui circuitos, cardio, core e descanso com duração estimada para cada dia.",
-    image: "/previews/treino-estrutura.jpg",
+    image: assetUrl("/previews/treino-estrutura.jpg"),
     alt: "Página do treino com a estrutura da semana em tabela",
   },
   {
@@ -50,7 +51,7 @@ const previews: Preview[] = [
     title: "Séries, repetições e descanso",
     description:
       "Cada sessão mostra o que executar, quantas rodadas fazer e quanto descansar entre os exercícios.",
-    image: "/previews/treino-semana.jpg",
+    image: assetUrl("/previews/treino-semana.jpg"),
     alt: "Página do treino com exercícios, séries e repetições",
   },
   {
@@ -59,10 +60,14 @@ const previews: Preview[] = [
     title: "Sete dias para sair do improviso",
     description:
       "Os exemplos de refeições vêm organizados por dia, porção e estimativa calórica.",
-    image: "/previews/dieta-cardapio.jpg",
+    image: assetUrl("/previews/dieta-cardapio.jpg"),
     alt: "Página do plano alimentar com um cardápio diário",
   },
 ];
+
+const finalCtaStyle = {
+  "--final-cta-image": `url("${assetUrl("/previews/treino-capa.jpg")}")`,
+} as CSSProperties;
 
 const weeks = [
   {
@@ -647,7 +652,7 @@ function App() {
           </div>
         </section>
 
-        <section className="final-cta" aria-labelledby="final-cta-title">
+        <section className="final-cta" style={finalCtaStyle} aria-labelledby="final-cta-title">
           <div className="shell final-cta-inner" data-reveal>
             <p className="eyebrow">Seu próximo passo já está organizado</p>
             <h2 id="final-cta-title">Abra o plano. Escolha o dia. Comece.</h2>

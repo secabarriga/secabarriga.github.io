@@ -2,6 +2,8 @@
 
 Landing page em React, TypeScript e Vite criada a partir dos PDFs reais do produto. O projeto é independente do frontend do PRESCRITOR e não altera a aplicação médica existente.
 
+Endereço público canônico: <https://secabarriga.github.io/>.
+
 A oferta principal reúne 3 PDFs e 57 páginas, com preço normal de R$ 99,90 e preço promocional de R$ 19,90 na campanha de fim de ano. O ebook **50 Receitas Fit** é um adicional opcional de R$ 4,90 oferecido no checkout da Cakto; com ele, o total é R$ 24,80.
 
 ## Rodar localmente
@@ -37,4 +39,12 @@ As imagens em `public/previews/` são renderizações de páginas dos PDFs forne
 
 ## Publicação
 
-O manifesto do Sites está em `.openai/hosting.json` e publica a pasta `dist/`. A primeira versão deve permanecer privada até a conclusão do [checklist da Cakto](./CAKTO-CHECKLIST.md).
+O GitHub Pages é a hospedagem pública canônica. O workflow `.github/workflows/deploy-pages.yml` valida, constrói e publica `dist/` automaticamente a cada push em `main`.
+
+Configure em **Settings → Secrets and variables → Actions → Variables**:
+
+- `VITE_CAKTO_CHECKOUT_URL`: link público da oferta principal de R$ 19,90;
+- `VITE_DELIVERY_READY`: `false` até a homologação da entrega e `true` depois;
+- `VITE_SUPPORT_EMAIL`: endereço público de suporte.
+
+O endereço anterior do Sites permanece apenas como cópia privada durante a migração. Mantenha `noindex` e o bloqueio de `robots.txt` até concluir o [checklist da Cakto](./CAKTO-CHECKLIST.md).

@@ -1491,7 +1491,7 @@ section[id] {
   padding-block: clamp(96px, 13vw, 180px);
   background:
     linear-gradient(115deg, rgba(142, 31, 36, 0.88), rgba(9, 11, 14, 0.96)),
-    url("/previews/treino-capa.jpg") center 28% / cover;
+    var(--final-cta-image) center 28% / cover;
 }
 
 .final-cta::after {

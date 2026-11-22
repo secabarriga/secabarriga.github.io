@@ -2,6 +2,8 @@
 
 O site está preparado para enviar a compra ao checkout hospedado da Cakto. Ele não processa pagamentos e não envia os PDFs por conta própria.
 
+Página de vendas definitiva: <https://secabarriga.github.io/>.
+
 ## Produto e entrega
 
 1. Cadastre um produto digital chamado “Protocolo 4 Semanas”.
@@ -28,6 +30,8 @@ VITE_CAKTO_CHECKOUT_URL=https://pay.cakto.com.br/SEU-LINK
 VITE_DELIVERY_READY=false
 VITE_SUPPORT_EMAIL=seu-email-de-suporte@dominio.com
 ```
+
+Na publicação do GitHub Pages, cadastre os mesmos três valores como **Repository variables** em **Settings → Secrets and variables → Actions → Variables** e execute novamente o workflow `Deploy GitHub Pages`.
 
 Depois, execute uma compra de teste e verifique:
 

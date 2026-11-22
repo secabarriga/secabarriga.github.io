@@ -1,12 +1,16 @@
 import { describe, expect, it } from "vitest";
 
-import { buildCheckoutUrl, normalizeCheckoutUrl, PRODUCT, RECIPE_ADDON } from "./siteConfig";
+import { assetUrl, buildCheckoutUrl, normalizeCheckoutUrl, PRODUCT, RECIPE_ADDON } from "./siteConfig";
 
 describe("site configuration", () => {
   it("keeps the verified inventory total", () => {
     expect(PRODUCT.modules.reduce((total, module) => total + module.pages, 0)).toBe(
       PRODUCT.totalPages,
     );
+  });
+
+  it("resolves public assets below the configured deployment base", () => {
+    expect(assetUrl("/previews/test.jpg")).toBe(`${import.meta.env.BASE_URL}previews/test.jpg`);
   });
 
   it("keeps the Black Friday offer and optional add-on totals consistent", () => {
